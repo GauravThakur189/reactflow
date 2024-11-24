@@ -63,7 +63,7 @@ export const PipelineUI = () => {
         );
         const type = appData?.nodeType;
 
-        // check if the dropped element is valid
+       
         if (typeof type === "undefined" || !type) {
           return;
         }
@@ -111,19 +111,19 @@ export const PipelineUI = () => {
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
-          connectionLineStyle={{ stroke: "#4caf50", strokeWidth: 2 }} // Theme color for connections
+          connectionLineStyle={{ stroke: "#4caf50", strokeWidth: 2 }} 
         >
-          <Background color="#e0e0e0" gap={gridSize} /> {/* Light background */}
+          <Background color="#e0e0e0" gap={gridSize} /> 
           <Controls
             style={{ backgroundColor: "#4caf50", color: "#fff" }}
           />{" "}
-          {/* Theme color for controls */}
+          
           <MiniMap
             nodeColor={(node) => {
-              // Set node color based on type (customize as needed)
+              
               return node.type === "output" ? "#4caf50" : "#ccc";
             }}
-            style={{ backgroundColor: "#4caf50" }} // Theme color for mini map
+            style={{ backgroundColor: "#4caf50" }} 
           />
         </ReactFlow>
       </div>

@@ -7,16 +7,16 @@ export const PipelineToolbar = () => {
     <div
       style={{
         padding: "10px",
-        position: "fixed", // Keep it at the top of the page
-        top: 0, // Align at the very top
-        left: 0, // Align to the left
-        right: 0, // Stretch to the right
-        backgroundColor: "#f8f9fa", // Light background color
-        borderBottom: "1px solid #ddd", // Subtle bottom border
+        position: "fixed", 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        backgroundColor: "#f8f9fa", 
+        borderBottom: "1px solid #ddd", 
         display: "flex",
         alignItems: "center",
-        justifyContent: "center", // Center-align the items horizontally
-        zIndex: 1000, // Ensure it stays on top
+        justifyContent: "center", 
+        zIndex: 1000, 
       }}
     >
       <div style={{ display: "flex", flexWrap: "nowrap", gap: "15px" }}>
