@@ -12,19 +12,19 @@ code {
     monospace;
 }
 
-/* app.css */
+
 .button {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  font-weight: bold; /* Bold text */
-  padding: 10px 20px; /* Padding for spacing */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: all 0.3s ease; /* Smooth transition effect */
+  background-color: #4caf50; 
+  color: white; 
+  font-weight: bold; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
 }
 
 .button:hover {
-  background-color: #45a049; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #45a049; 
+  transform: scale(1.05); 
 }
