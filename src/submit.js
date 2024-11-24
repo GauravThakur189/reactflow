@@ -1,11 +1,11 @@
 import { useStore } from "./store";
 
 export const SubmitButton = () => {
-  const { nodes, edges } = useStore(); // Access nodes and edges from the store
+  const { nodes, edges } = useStore();
 
   const handleSubmit = async () => {
     try {
-      // Send nodes and edges to the backend
+      
       const response = await fetch("http://localhost:8000/pipelines/parse", {
         method: "POST",
         headers: {
@@ -14,10 +14,10 @@ export const SubmitButton = () => {
         body: JSON.stringify({ nodes, edges }),
       });
 
-      // Parse the response
+      
       const result = await response.json();
 
-      // Display the response in an alert
+      
       alert(
         `Number of Nodes: ${result.num_nodes}\nNumber of Edges: ${result.num_edges}\nIs DAG: ${result.is_dag}`
       );
