@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const DraggableNode = ({ type, label }) => {
-  const [isHovered, setIsHovered] = useState(false); // State to track hover
+  const [isHovered, setIsHovered] = useState(false); 
 
   const onDragStart = (event, nodeType) => {
     const appData = { nodeType };
@@ -18,10 +18,10 @@ export const DraggableNode = ({ type, label }) => {
       className={type}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = "grab")}
-      onMouseEnter={() => setIsHovered(true)} // Trigger hover state
-      onMouseLeave={() => setIsHovered(false)} // Reset hover state
-      onMouseDown={(e) => (e.target.style.transform = "scale(0.95)")} // Shrink on click
-      onMouseUp={(e) => (e.target.style.transform = "scale(1)")} // Reset on release
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)} 
+      onMouseDown={(e) => (e.target.style.transform = "scale(0.95)")} 
+      onMouseUp={(e) => (e.target.style.transform = "scale(1)")}
       style={{
         cursor: "grab",
         minWidth: "100px",
@@ -30,7 +30,7 @@ export const DraggableNode = ({ type, label }) => {
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "12px",
-        backgroundColor: isHovered ? "#45a049" : "#4CAF50", // Dynamic hover color
+        backgroundColor: isHovered ? "#45a049" : "#4CAF50", 
         color: "#fff",
         fontSize: "14px",
         fontWeight: "bold",
