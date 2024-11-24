@@ -1,72 +1,3 @@
-// import React, { useState } from 'react';
-// import { Handle } from 'reactflow';
-
-// /**
-//  * A reusable BaseNode component that handles common functionality for all nodes.
-//  * 
-//  * Props:
-//  * - id: Unique identifier for the node.
-//  * - type: The type of node ("Input", "LLM", "Output").
-//  * - data: Custom data passed to the node (e.g., names, types).
-//  * - handles: An array of handle configurations (type, position, id, style).
-//  * - content: A function or JSX that defines the unique content of the node.
-//  */
-// const BaseNode = ({ id, type, data = {}, handles = [], content }) => {
-//   const [currName, setCurrName] = useState(data?.name || `${type.toLowerCase()}_${id}`);
-//   const [nodeType, setNodeType] = useState(data?.nodeType || 'Text');
-
-//   const handleNameChange = (e) => setCurrName(e.target.value);
-//   const handleTypeChange = (e) => setNodeType(e.target.value);
-
-//   return (
-//     <div style={{ width: 200, height: 100, border: '1px solid black', padding: 10 }}>
-//       {handles.map((handle, index) => (
-//         <Handle
-//           key={index}
-//           type={handle.type}
-//           position={handle.position}
-//           id={handle.id}
-//           style={handle.style}
-//         />
-//       ))}
-
-
-//       <div>
-//         <span>{type}</span>
-//       </div>
-
-//       <div>
-//         <label>
-//           Name:
-//           <input
-//             type="text"
-//             placeholder='write here'
-//             value={currName}
-//             onChange={handleNameChange}
-//           />
-//         </label>
-
-//         {type !== 'LLM' && (
-//           <label>
-//             Type:
-//             <select value={nodeType} onChange={handleTypeChange}>
-//               <option value="Text">Text</option>
-//               <option value="File">{type === 'Output' ? 'Image' : 'File'}</option>
-//             </select>
-//           </label>
-//         )}
-//       </div>
-
-//       {content && <div>{content()}</div>}
-//     </div>
-//   );
-// };
-
-// export default BaseNode;
-
-
-
-
 import React, { useState, useEffect, useRef } from "react";
 import { Handle } from "reactflow";
 
@@ -122,15 +53,16 @@ const BaseNode = ({ id, type, data, handles, content }) => {
     <div
       style={{
         padding: "10px",
-        border: "1px solid black",
+        border: "1px solid #4CAF50", // Use theme color for border
         borderRadius: "8px",
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "#f9f9f9", // Light background for contrast
         wordWrap: "break-word",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         minWidth: "200px",
         minHeight: "100px",
+        transition: "border-color 0.3s ease", // Smooth transition for hover effects
       }}
     >
       {/* Render Handles */}
@@ -140,7 +72,14 @@ const BaseNode = ({ id, type, data, handles, content }) => {
           type={handle.type || "target"}
           position={handle.position}
           id={handle.id}
-          style={handle.style}
+          style={{
+            ...handle.style,
+            backgroundColor: "#4CAF50", // Theme color for handles
+            borderRadius: "50%", // Circular handles for aesthetics
+            width: "10px", // Adjust handle size
+            height: "10px",
+            border: "none",
+          }}
         />
       ))}
 
@@ -152,7 +91,7 @@ const BaseNode = ({ id, type, data, handles, content }) => {
         placeholder="Enter text..."
         style={{
           resize: "none", // Prevent manual resizing
-          border: "1px solid gray",
+          border: "1px solid #4CAF50", // Theme color for border
           borderRadius: "4px",
           padding: "5px",
           overflow: "hidden", // Prevent scrollbars
@@ -160,6 +99,7 @@ const BaseNode = ({ id, type, data, handles, content }) => {
           whiteSpace: "pre-wrap", // Preserve line breaks
           overflowWrap: "break-word", // Break long words if necessary
           display: "inline-block", // Ensures inline expansion
+          transition: "border-color 0.3s ease", // Smooth transition for border color
         }}
       />
 
@@ -167,7 +107,9 @@ const BaseNode = ({ id, type, data, handles, content }) => {
       {content && content()}
 
       {/* Info Below Input */}
-      <small style={{ marginTop: "10px", color: "gray" }}>
+      <small style={{ marginTop: "10px", color: "#4CAF50" }}>
+        {" "}
+        {/* Use theme color for text */}
         Type {"{{variable}}"} to create dynamic handles
       </small>
     </div>

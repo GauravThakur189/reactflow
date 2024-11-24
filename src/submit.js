@@ -33,9 +33,17 @@ export const SubmitButton = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        position: "absolute",
+        bottom: "5vh",
+        left: "calc(50vw - 50px)",
       }}
     >
-      <button type="button" onClick={handleSubmit}>
+      <button
+        type="button"
+        onClick={handleSubmit}
+        style={{ width: "100px" }}
+        className="button"
+      >
         Submit
       </button>
     </div>
